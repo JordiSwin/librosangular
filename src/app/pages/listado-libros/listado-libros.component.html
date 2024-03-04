@@ -1,0 +1,61 @@
+<div class="container" >
+    <h1>Catálogo de Libros</h1>
+    
+    <h4>Alta de Libros</h4>
+    <div class="col-sm-4">
+      <p>
+        <label>Título:</label>
+        <input type="text" class="form-control" [(ngModel)]="libro.titulo"> 
+      </p>
+      <p>
+        <label>Autor:</label>
+        <input type="text" class="form-control" [(ngModel)]="libro.autor"> 
+      </p>
+      <p>
+        <label>Editorial:</label>
+        <input type="text" class="form-control" [(ngModel)]="libro.editorial"> 
+      </p>
+      <p>
+        <label>Fecha:</label>
+        <input type="text" class="form-control" [(ngModel)]="libro.fecha"> 
+      </p>
+    
+      <br>
+      <table>
+        <tr>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">Insertar</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-warning" (click)="this.updateLibro()">Modificar</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="this.deleteLibro(libro.id)">Borrar</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    
+    <!--* Tabla que muestra los datos *-->
+    <table class="table">
+      <thead>
+        <th>Título</th>
+        <th>Autor(es)</th>
+        <th>Editorial</th>
+        <th>Fecha de Publicación</th>
+        <th>Seleccionar</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let libro of libros">
+          <td>{{ libro.titulo }}</td>
+          <td>{{ libro.autor }}</td>
+          <td>{{ libro.editorial }}</td>
+          <td>{{ libro.fecha }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="selectLibro(libro)">Seleccionar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
